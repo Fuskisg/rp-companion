@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RP Companion</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>RP</b> COMPANION<small>личная панель</small></div></div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard">⌂ <span>Обзор</span></button>
+        <button class="nav-item" data-view="tasks">✓ <span>Задачи</span></button>
+        <button class="nav-item" data-view="notes">▤ <span>Заметки</span></button>
+        <button class="nav-item" data-view="settings">⚙ <span>Настройки</span></button>
+      </nav>
+      <div class="side-footer"><span class="status-dot"></span> локальный режим</div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar"><div><div class="eyebrow">ПАНЕЛЬ УПРАВЛЕНИЯ</div><h1 id="page-title">Добро пожаловать</h1></div><div class="clock" id="clock">00:00:00</div></header>
+
+      <section id="view-dashboard" class="view active-view">
+        <div class="hero"><div><div class="eyebrow">СЕГОДНЯ</div><h2>Сессия под контролем</h2><p>Планируй действия, отмечай результат и сохраняй свои заметки в локальном профиле.</p></div><button class="primary" id="session-button">▶ Начать сессию</button></div>
+        <div class="stats"><article><span>Выполнено задач</span><strong id="completed-stat">0</strong><small>за текущий профиль</small></article><article><span>Сессий проведено</span><strong id="sessions-stat">0</strong><small>сохранено локально</small></article><article><span>Прогресс</span><strong id="progress-stat">0%</strong><small>по чек-листу</small></article></div>
+        <div class="grid"><article class="panel"><div class="panel-head"><div><div class="eyebrow">ЧЕК-ЛИСТ</div><h3>Ближайшие задачи</h3></div><button class="ghost" data-view="tasks">Все задачи →</button></div><div id="task-preview" class="task-list"></div></article><article class="panel accent-panel"><div class="eyebrow">БЫСТРАЯ ЗАМЕТКА</div><h3>Что важно запомнить?</h3><textarea id="quick-note" placeholder="Напиши пару слов после сессии..."></textarea><button class="secondary" id="save-note">Сохранить заметку</button></article></div>
+      </section>
+
+      <section id="view-tasks" class="view"><div class="section-head"><div><div class="eyebrow">ЧЕК-ЛИСТ</div><h2>Задачи</h2></div><div class="add-task"><input id="new-task" placeholder="Новая задача"><button class="primary" id="add-task">Добавить</button></div></div><div id="task-list" class="task-list large"></div></section>
+      <section id="view-notes" class="view"><div class="eyebrow">ЛОКАЛЬНЫЕ ЗАПИСИ</div><h2>Заметки</h2><p class="muted">Записи хранятся в папке проекта на этом компьютере.</p><textarea id="notes-editor" class="notes-editor" placeholder="Запиши наблюдения, планы и результаты..."></textarea><button class="primary" id="save-notes">Сохранить</button></section>
+      <section id="view-settings" class="view"><div class="eyebrow">ПРОФИЛЬ</div><h2>Настройки</h2><div class="settings-card"><span>Режим работы</span><b>Локальный</b><small>Приложение не отправляет данные во внешний сервис.</small></div><div class="settings-card"><span>Назначение</span><b>Планировщик игровой сессии</b><small>Таймер, задачи и заметки помогают организовать время.</small></div></section>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
